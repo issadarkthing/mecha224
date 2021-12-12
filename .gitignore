@@ -1,0 +1,6 @@
+node_modules/
+dist/
+.env
+*.zip
+data/
+src/commands/Test.ts

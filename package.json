@@ -1,0 +1,23 @@
+{
+  "name": "bot-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon dist/index.js",
+    "watch": "tsc -w",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@jiman24/commandment": "^0.3.11",
+    "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0",
+    "enmap": "^5.8.7",
+    "random-js": "^2.1.0",
+    "typescript": "^4.5.3"
+  }
+}
