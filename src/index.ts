@@ -34,6 +34,7 @@ client.commandManager.registerCommandOnThrottleHandler((msg, cmd, timeLeft) => {
 
 client.commandManager.registerCommandErrorHandler((err, msg) => {
   msg.channel.send((err as Error).message);
+  console.log(err);
 })
 
 client.on("ready", () => console.log(client.user?.username, "is ready!"))
