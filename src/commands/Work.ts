@@ -7,7 +7,7 @@ import { Settings } from "../structure/Settings";
 export default class extends Command {
   name = "work";
   description = "earn coin";
-  throttle = 2 * 1000;
+  throttle = 5 * 1000;
   min = 10;
   max = 200;
 
