@@ -37,6 +37,11 @@ export class Settings {
   static fromGuild(guild: Guild) {
 
     const data = client.settings.get(guild.id);
+
+    if (!data) {
+      throw new Error("guild settings has not been configured");
+    }
+
     const spamChannels = this.getChannels(data.spamChannels, guild.channels);
     const gamblingChannels = this.getChannels(data.gamblingChannels, guild.channels);
     const duelChannels = this.getChannels(data.duelChannels, guild.channels);
