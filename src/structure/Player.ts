@@ -1,4 +1,4 @@
-import { User } from "discord.js";
+import { MessageEmbed, User } from "discord.js";
 import { client } from "../index";
 
 
@@ -19,7 +19,17 @@ export class Player {
   }
 
   get avatarUrl() {
-    return this.user.avatarURL();
+    return this.user.avatarURL() || this.user.defaultAvatarURL;
+  }
+
+  show() {
+    const embed = new MessageEmbed()
+      .setColor("RANDOM")
+      .setThumbnail(this.avatarUrl)
+      .addField("Name", this.name, true)
+      .addField("Coins", `${this.coins}`, true)
+
+    return embed;
   }
 
   static fromUser(user: User) {
