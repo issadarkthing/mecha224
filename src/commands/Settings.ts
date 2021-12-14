@@ -38,7 +38,7 @@ export default class extends Command {
         **Message Award 1**
         Role given if X (ratio) days with Y quality and Z length: 
         no gm spammers, no copy pasters etc
-        Role: <@&${settings.messageAward1.role}>
+        Role: ${settings.messageAward1.role}
         Min Count: ${settings.messageAward1.count}
         Min Length: ${settings.messageAward1.length}
         Min Days: ${settings.messageAward1.days}
@@ -46,8 +46,8 @@ export default class extends Command {
         **Message Award 2**
         Role given if user post a certain message in a certain channel at a
         certain time of the day
-        Role: <@&${settings.messageAward2.role}>
-        Channel: <#${settings.messageAward2.channel}>
+        Role: ${settings.messageAward2.role}
+        Channel: ${settings.messageAward2.channel}
         Start Time: ${startTime.toLocaleString(DateTime.TIME_24_SIMPLE)}
         End Time: ${endTime.toLocaleString(DateTime.TIME_24_SIMPLE)}
         `)

@@ -102,13 +102,13 @@ export class Settings {
       gamblingChannels,
       spamChannels,
       messageAward1: {
-        role: msgAward1Role,
         ...data.messageAward1,
+        role: msgAward1Role,
       },
       messageAward2: {
+        ...data.messageAward2,
         role: msgAward2Role,
         channel: award2Channel,
-        ...data.messageAward2,
       }
     });
   }
