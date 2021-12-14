@@ -15,6 +15,7 @@ export class MessageAward2 {
 
     if (msg.channel.id !== messageAward2.channel.id) return;
 
+    if (msg.content !== messageAward2.keyword) return;
 
     const now = DateTime.now();
     const { day, month, year } = now;
