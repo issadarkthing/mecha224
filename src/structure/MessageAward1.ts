@@ -43,7 +43,8 @@ export class MessageAward1 {
 
     if (
       player.messageDayStreak >= msgAward.days && 
-      player.messageCount >= msgAward.count
+      player.messageCount >= msgAward.count &&
+      msg.member?.roles.cache.has(msgAward.role.id)
     ) {
 
       player.messageDayStreak = 0;
