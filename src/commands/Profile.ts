@@ -12,13 +12,6 @@ export default class extends Command {
 
     const player = Player.fromUser(msg.author);
 
-    player.lastMessageDate = new Date(2000, 1);
-    player.messageDayStreak = 0;
-    player.messageCount = 0;
-    player.last3messages = [];
-    player.save();
-    console.log(player);
-
     msg.channel.send({ embeds: [player.show()] });
   }
 }
