@@ -5,6 +5,10 @@ import { client } from "../index";
 export class Player {
   user: User;
   coins = 0;
+  messageDayStreak = 0;
+  messageCount = 0;
+  lastMessageDate = new Date(2000);
+  last3messages: string[] = [];
 
   constructor(user: User) {
     this.user = user;

@@ -2,6 +2,7 @@ import { Client } from "./structure/Client";
 import path from "path";
 import { config } from "dotenv";
 import { MessageAward2 } from "./structure/MessageAward2";
+import { MessageAward1 } from "./structure/MessageAward1";
 import { Spawn } from "./structure/Spawn";
 
 config();
@@ -41,6 +42,7 @@ client.commandManager.registerCommandErrorHandler((err, msg) => {
 
 client.on("ready", () => console.log(client.user?.username, "is ready!"))
 client.on("messageCreate", msg => client.commandManager.handleMessage(msg));
+client.on("messageCreate", msg => MessageAward1.handleMessage(msg));
 client.on("messageCreate", msg => MessageAward2.handleMessage(msg));
 client.on("messageCreate", msg => Spawn.handleCatch(msg));
 
