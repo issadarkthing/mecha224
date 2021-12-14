@@ -137,6 +137,10 @@ export default class extends Command {
     const startTime = now.set({ hour, minute });
     const endTime = startTime.plus({ hours: duration });
 
+    if (!startTime.isValid) {
+      throw new Error(startTime.invalidReason!);
+    }
+
     const settings = new Settings({
       guild: msg.guild!,
       spamChannels: spam,
