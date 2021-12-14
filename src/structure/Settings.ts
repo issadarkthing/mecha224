@@ -14,6 +14,7 @@ interface MessageAward1 {
 // time of the day
 interface MessageAward2 {
   role: Role;
+  keyword: string;
   channel: TextBasedChannels;
   startTime: Date;
   endTime: Date;

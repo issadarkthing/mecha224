@@ -48,6 +48,7 @@ export default class extends Command {
         certain time of the day
         Role: ${settings.messageAward2.role}
         Channel: ${settings.messageAward2.channel}
+        Keyword: ${settings.messageAward2.keyword}
         Start Time: ${startTime.toLocaleString(DateTime.TIME_24_SIMPLE)}
         End Time: ${endTime.toLocaleString(DateTime.TIME_24_SIMPLE)}
         `)
@@ -113,6 +114,10 @@ export default class extends Command {
       throw new Error("No channel mentioned for **Message Award 2**");
     }
 
+    const keyword = await prompt.ask(
+      "Please specify keyword for this award to be triggered"
+    );
+
     const now = DateTime.now();
 
     const startTimeInput = await prompt.ask(
@@ -145,6 +150,7 @@ export default class extends Command {
       },
       messageAward2: {
         role: msgAward2Role,
+        keyword,
         channel: msgAward2Channel as TextBasedChannels,
         startTime: startTime.toJSDate(),
         endTime: endTime.toJSDate(),
