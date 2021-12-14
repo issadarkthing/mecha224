@@ -1,6 +1,7 @@
 import { Client } from "./structure/Client";
 import path from "path";
 import { config } from "dotenv";
+import { MessageAward2 } from "./structure/MessageAward2";
 
 config();
 
@@ -39,5 +40,6 @@ client.commandManager.registerCommandErrorHandler((err, msg) => {
 
 client.on("ready", () => console.log(client.user?.username, "is ready!"))
 client.on("messageCreate", msg => client.commandManager.handleMessage(msg));
+client.on("messageCreate", msg => MessageAward2.handleMessage(msg));
 
 client.login(process.env.BOT_TOKEN);
