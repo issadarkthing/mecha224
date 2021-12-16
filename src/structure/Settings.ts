@@ -1,6 +1,8 @@
 import { Guild, GuildChannelManager, Role, TextBasedChannels } from "discord.js";
 import { client } from "../index";
 
+export class SettingsError extends Error {};
+
 // Roles given if X (ratio) days with Y quality and Z length/wathever keywords
 // or smth else : no gm spammers, no copy pasters etc
 interface MessageAward1 {
@@ -65,36 +67,36 @@ export class Settings {
     const data = client.settings.get(guild.id);
 
     if (!data) {
-      throw new Error("guild settings has not been configured");
+      throw new SettingsError("guild settings has not been configured");
     }
 
     const spamChannels = this.getChannels(data.spamChannels, guild.channels);
     if (spamChannels.length < 1) {
-      throw new Error("no spam channel was chosen");
+      throw new SettingsError("no spam channel was chosen");
     }
 
     const gamblingChannels = this.getChannels(data.gamblingChannels, guild.channels);
     if (gamblingChannels.length < 1) {
-      throw new Error("no gambling channel was chosen");
+      throw new SettingsError("no gambling channel was chosen");
     }
 
     const duelChannels = this.getChannels(data.duelChannels, guild.channels);
     if (duelChannels.length < 1) {
-      throw new Error("no duel channel was chosen");
+      throw new SettingsError("no duel channel was chosen");
     }
 
     const award2Channel = guild.channels.cache.get(data.messageAward2.channel);
     if (!award2Channel) {
-      throw new Error("no Message Award 2 channel was chosen");
+      throw new SettingsError("no Message Award 2 channel was chosen");
     }
     
     const msgAward1Role = guild.roles.cache.get(data.messageAward1.role);
     const msgAward2Role = guild.roles.cache.get(data.messageAward2.role);
 
     if (!msgAward1Role) {
-      throw new Error(`${data.messageAward1.role} role is missing`);
+      throw new SettingsError(`${data.messageAward1.role} role is missing`);
     } else if (!msgAward2Role) {
-      throw new Error(`${data.messageAward2.role} role is missing`);
+      throw new SettingsError(`${data.messageAward2.role} role is missing`);
     }
 
     return new Settings({
